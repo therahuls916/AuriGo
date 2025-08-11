@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.rahul.auric.aurigo.features.auth.LoginScreen
 import com.rahul.auric.aurigo.features.home.HomeScreen
 
@@ -13,12 +14,23 @@ import com.rahul.auric.aurigo.features.home.HomeScreen
 fun AppNavigation() {
     val navController = rememberNavController()
 
+    // --- THIS IS THE KEY LOGIC ---
+    // Check if a user is already logged in with Firebase.
+    val firebaseUser = FirebaseAuth.getInstance().currentUser
+
+    // Determine the starting screen based on whether the user is logged in.
+    val startDestination = if (firebaseUser != null) {
+        // User is logged in, start at Home
+        AppRoutes.HomeScreen.route
+    } else {
+        // User is not logged in, start at Login
+        AppRoutes.LoginScreen.route
+    }
+
     NavHost(
         navController = navController,
-        startDestination = AppRoutes.LoginScreen.route
+        startDestination = startDestination // Use our determined starting screen
     ) {
-        // --- Define all existing screens in the app ---
-
         // Authentication Feature
         composable(route = AppRoutes.LoginScreen.route) {
             LoginScreen(navController = navController)
@@ -30,7 +42,5 @@ fun AppNavigation() {
         }
 
         // We will add other routes for other features here as we build them.
-        // For example:
-        // composable(AppRoutes.ProfileScreen.route) { ProfileScreen(navController) }
     }
 }
