@@ -27,8 +27,8 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Add this line to read the token
-        buildConfigField("String", "MAPBOX_ACCESS_TOKEN", "\"${localProperties.getProperty("MAPBOX_ACCESS_TOKEN")}\"")    }
+
+    }
 
     buildTypes {
         release {
@@ -80,8 +80,6 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
 
-    // Mapbox SDK
-    implementation("com.mapbox.maps:android:11.3.1")
     implementation(libs.androidx.foundation)
 
     // Testing Libraries
@@ -96,4 +94,11 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation("androidx.compose.material:material-icons-extended-android:1.6.6")
+
+    implementation("com.google.accompanist:accompanist-permissions:0.34.0")
+
+    implementation("com.google.android.gms:play-services-location:21.2.0")
+
+    implementation("com.google.maps.android:maps-compose:4.3.3")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 }

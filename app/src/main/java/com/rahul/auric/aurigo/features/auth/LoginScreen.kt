@@ -1,6 +1,6 @@
 // In screens/LoginScreen.kt
 
-package com.rahul.auric.aurigo.screens
+package com.rahul.auric.aurigo.features.auth
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.*
