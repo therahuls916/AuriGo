@@ -9,6 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.rahul.auric.aurigo.features.auth.LoginScreen
 import com.rahul.auric.aurigo.features.home.HomeScreen
+import com.rahul.auric.aurigo.features.ride_details.RideDetailsScreen // <-- ADD THIS IMPORT
+import com.rahul.auric.aurigo.features.ride_in_progress.RideInProgressScreen // Add import
 
 @Composable
 fun AppNavigation() {
@@ -41,6 +43,13 @@ fun AppNavigation() {
             HomeScreen(navController = navController)
         }
 
-        // We will add other routes for other features here as we build them.
+        // Ride Details Feature
+        composable(route = AppRoutes.RideDetailsScreen.route) { // <-- ADD THIS BLOCK
+            RideDetailsScreen(navController = navController)
+        }
+
+        composable(route = AppRoutes.RideInProgressScreen.route) { // Add this block
+            RideInProgressScreen(navController = navController)
+        }
     }
 }

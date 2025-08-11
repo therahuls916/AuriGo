@@ -36,6 +36,7 @@ import com.google.maps.android.compose.rememberCameraPositionState
 import com.rahul.auric.aurigo.features.home.components.DriverCard
 import com.rahul.auric.aurigo.features.home.components.HomeSearchBar
 import com.rahul.auric.aurigo.features.home.location.getUserLocation
+import com.rahul.auric.aurigo.navigation.AppRoutes
 import kotlinx.coroutines.launch
 
 data class DriverInfo(
@@ -133,7 +134,7 @@ fun HomeScreen(navController: NavController) {
                     carModel = driver.carModel,
                     distanceAway = driver.distanceAway,
                     onSelect = {
-                        Toast.makeText(context, "Selected ${driver.name}", Toast.LENGTH_SHORT).show()
+                        navController.navigate(AppRoutes.RideDetailsScreen.route)
                     }
                 )
             }
