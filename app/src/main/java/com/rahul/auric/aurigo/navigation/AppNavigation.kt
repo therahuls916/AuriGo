@@ -3,9 +3,11 @@
 package com.rahul.auric.aurigo.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.rahul.auric.aurigo.screens.*
 
 @Composable
@@ -29,5 +31,13 @@ fun AppNavigation() {
         composable(AppRoutes.PaymentScreen.route) { PaymentScreen() }
         composable(AppRoutes.ProfileScreen.route) { ProfileScreen() }
         composable(AppRoutes.SupportScreen.route) { SupportScreen() }
+
+        composable(
+            route = AppRoutes.OtpScreen.route,
+            arguments = listOf(navArgument("verificationId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val verificationId = backStackEntry.arguments?.getString("verificationId")
+            OtpScreen(navController = navController, verificationId = verificationId)
+        }
     }
 }

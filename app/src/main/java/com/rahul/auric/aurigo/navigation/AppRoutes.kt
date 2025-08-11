@@ -13,4 +13,8 @@ sealed class AppRoutes(val route: String) {
     object PaymentScreen : AppRoutes("payment_screen")
     object ProfileScreen : AppRoutes("profile_screen")
     object SupportScreen : AppRoutes("support_screen")
+
+    object OtpScreen : AppRoutes("otp_screen/{verificationId}") {
+        fun createRoute(verificationId: String) = "otp_screen/$verificationId"
+    }
 }
