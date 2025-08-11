@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
+
             AurigoTheme { // Correct Usage
                 Surface(
                     modifier = Modifier.fillMaxSize(),

@@ -82,6 +82,7 @@ dependencies {
 
     // Mapbox SDK
     implementation("com.mapbox.maps:android:11.3.1")
+    implementation(libs.androidx.foundation)
 
     // Testing Libraries
     testImplementation("junit:junit:4.13.2")

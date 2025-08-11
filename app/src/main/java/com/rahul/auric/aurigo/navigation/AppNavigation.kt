@@ -20,7 +20,7 @@ fun AppNavigation() {
         // composable(AppRoutes.SplashScreen.route) { SplashScreen(navController) } // <-- DELETE THIS
 
         // The app now starts with the Login Screen
-        composable(AppRoutes.LoginScreen.route) { LoginScreen() }
+        composable(AppRoutes.LoginScreen.route) { LoginScreen(navController) }
         composable(AppRoutes.HomeScreen.route) { HomeScreen() }
         composable(AppRoutes.RideDetailsScreen.route) { RideDetailsScreen() }
         composable(AppRoutes.BookingConfirmationScreen.route) { BookingConfirmationScreen() }
