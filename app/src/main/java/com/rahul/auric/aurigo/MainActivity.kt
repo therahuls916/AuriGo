@@ -9,19 +9,28 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.rahul.auric.aurigo.navigation.AppNavigation // Import our Nav Graph
-import com.rahul.auric.aurigo.ui.theme.AuriGoTheme
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.rahul.auric.aurigo.navigation.AppNavigation
+import com.rahul.auric.aurigo.ui.theme.AurigoTheme // Correct Import
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen().apply {
+            runBlocking {
+                delay(1500L)
+            }
+        }
+
         setContent {
-            AuriGoTheme {
+            AurigoTheme { // Correct Usage
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // This is now the entry point of our app's UI
                     AppNavigation()
                 }
             }

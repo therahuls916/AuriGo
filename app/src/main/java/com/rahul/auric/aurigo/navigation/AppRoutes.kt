@@ -4,7 +4,6 @@ package com.rahul.auric.aurigo.navigation
 
 // A sealed class to define the routes for all our screens in a type-safe way
 sealed class AppRoutes(val route: String) {
-    object SplashScreen : AppRoutes("splash_screen")
     object LoginScreen : AppRoutes("login_screen")
     object HomeScreen : AppRoutes("home_screen")
     object RideDetailsScreen : AppRoutes("ride_details_screen")

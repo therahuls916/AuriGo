@@ -6,18 +6,20 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.rahul.auric.aurigo.screens.* // Import all your screens
+import com.rahul.auric.aurigo.screens.*
 
 @Composable
 fun AppNavigation() {
-    val navController = rememberNavController() // Create a controller to manage navigation
+    val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = AppRoutes.SplashScreen.route // The first screen to show
+        startDestination = AppRoutes.LoginScreen.route // <-- CHANGE THIS
     ) {
-        // Define the path for each screen
-        composable(AppRoutes.SplashScreen.route) { SplashScreen() }
+        // DELETE THE COMPOSABLE FOR THE SPLASH SCREEN
+        // composable(AppRoutes.SplashScreen.route) { SplashScreen(navController) } // <-- DELETE THIS
+
+        // The app now starts with the Login Screen
         composable(AppRoutes.LoginScreen.route) { LoginScreen() }
         composable(AppRoutes.HomeScreen.route) { HomeScreen() }
         composable(AppRoutes.RideDetailsScreen.route) { RideDetailsScreen() }
