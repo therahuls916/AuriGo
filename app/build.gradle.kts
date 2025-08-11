@@ -1,22 +1,34 @@
+import java.io.FileInputStream
+import java.util.Properties
+
+// Load local.properties
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localProperties.load(FileInputStream(localPropertiesFile))
+}
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.rahul.auric.aurigo"
-    compileSdk = 36
+    compileSdk = 36 // Note: As of now, 34 is the latest stable. If 36 gives issues, change to 34.
 
     defaultConfig {
         applicationId = "com.rahul.auric.aurigo"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 34 // Changed from 36 to 34 for stability
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+
+        // Add this line to read the token
+        buildConfigField("String", "MAPBOX_ACCESS_TOKEN", "\"${localProperties.getProperty("MAPBOX_ACCESS_TOKEN")}\"")    }
 
     buildTypes {
         release {
@@ -36,6 +48,11 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true // <-- ADD THIS LINE
+
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10" // Make sure this version matches your compose-bom
     }
 }
 
@@ -54,18 +71,17 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // Firebase Bill of Materials (BoM) - Manages versions for all Firebase libraries
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    // We are keeping ONLY the newest version.
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0")) // Using 32.8.0 as it's a very stable recent version.
+
     // Individual Firebase Libraries
-    implementation("com.google.firebase:firebase-auth-ktx") // For Authentication
-    implementation("com.google.firebase:firebase-database-ktx") // For Realtime Database
-    implementation("com.google.firebase:firebase-firestore-ktx") // For Firestore (optional but good to have)
-    implementation("com.google.firebase:firebase-messaging-ktx") // For Push Notifications
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
 
     // Mapbox SDK
     implementation("com.mapbox.maps:android:11.3.1")
-
-    // Lottie for Animations (optional, but good for splash/loading screens)
-    // implementation("com.airbnb.android:lottie-compose:6.3.0")
 
     // Testing Libraries
     testImplementation("junit:junit:4.13.2")

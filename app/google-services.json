@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "177398827574",
+    "project_id": "aurigo-d2849",
+    "storage_bucket": "aurigo-d2849.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177398827574:android:cf7bcac08a0a7601656697",
+        "android_client_info": {
+          "package_name": "com.rahul.auric.aurigo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAmqJ7SX5rBsyaGc1K2HU5d37YPFx0Gco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
