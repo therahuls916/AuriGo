@@ -1,12 +1,12 @@
 # 🚗 AuriGO - Ride-Sharing App Prototype
 > **Project for Android Development Learning & Portfolio**
 
-| Project Info      | Details                            |
-|----------------------|-------------------------------------|
-| **Developer Name**             | Rahul Salunke                      |
-| **Project**        | AuriGO - Ride-Sharing App         |
-| **Domain**           | Android Development                |
-| **Guidance By**    | AI Assistant (step-by-step development) |
+| Project Info      | Details                   |
+|----------------------|---------------------------|
+| **Developer Name**             | Rahul Salunke             |
+| **Project**        | AuriGO - Ride-Sharing App |
+| **Domain**           | Android Development       |
+| **Guidance By**    | Neela Santhosh Kumar      |
 
 ---
 ### 📸 Screenshots
